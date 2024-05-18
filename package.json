@@ -24,8 +24,7 @@
   "scripts": {
     "react": "react-scripts start",
     "server": "node --experimental-specifier-resolution=node --loader ts-node/esm server/index.ts",
-    "start": "npm run server & npm run react & npx cypress run
-",
+    "start": "npm run server & npm run react & npx cypress run",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
