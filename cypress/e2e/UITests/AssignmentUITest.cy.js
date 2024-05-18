@@ -1,5 +1,8 @@
-import mainChartPage from "../UITests/pageObjects/MainChartPage.js"
+import mainChartPage from "./pageObjects/MainChartPage.js"
+import createChartPage from "./pageObjects/CreateChartPage.js"
 const ChartPage = new mainChartPage();
+const CreateChart = new createChartPage();
+
 
 describe('UI assignment test', () => {
   
@@ -7,8 +10,15 @@ describe('UI assignment test', () => {
     cy.visit('http://localhost:3000/')
   })
   
-  it('should return the default list when no query parameters are provided', () => {
-    ChartPage.inputTextAndSearchCharts()
+  it('Search And Verify Results', () => {
+    ChartPage.inputTextAndSearchCharts('Chart 1')
+    ChartPage.verifySearch('Chart 1')
   });
+
+  it('Create a Chart', () => {
+    ChartPage.clickCreateChartButton(),
+    CreateChart.clickGoBackButton()
+  });
+
 
 });
