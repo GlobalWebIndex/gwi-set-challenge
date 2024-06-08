@@ -42,9 +42,9 @@ Feature: Charts page functionality
       | FIELD_MISSING | FIELD_MISSING | NAME     | ASC    |
       | _             | FIELD_MISSING | NAME     | ASC    |
       | NULL          | FIELD_MISSING | NAME     | ASC    |
-      | FIELD_MISSING | NULL          | NAME     | DESC   |
+      | FIELD_MISSING | NULL          | NAME     | ASC   |
       | FIELD_MISSING | _             | NAME     | ASC    |
-      | _             | _             | NAME     | DESC   |
+      | _             | _             | NAME     | ASC   |
       | FIELD_MISSING | asc           | NAME     | ASC    |
       | FIELD_MISSING | desc          | NAME     | DESC   |
       | name          | FIELD_MISSING | NAME     | ASC    |

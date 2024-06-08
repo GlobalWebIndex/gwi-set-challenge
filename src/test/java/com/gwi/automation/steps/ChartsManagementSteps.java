@@ -5,21 +5,12 @@ import static com.gwi.automation.ui.GlobalVars.SESSION_DATA;
 import static com.gwi.automation.utils.Comparators.sortBy;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.gwi.automation.dto.Chart;
 import com.gwi.automation.enums.SortByOption;
 import com.gwi.automation.pages.ChartsPage;
 import io.cucumber.java.en.When;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.lang.reflect.Type;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import lombok.extern.slf4j.Slf4j;
@@ -31,18 +22,9 @@ public class ChartsManagementSteps {
   private final SoftAssertions softly;
   private ChartsPage chartsPage;
 
-  public ChartsManagementSteps(SoftAssertions softly){
+  public ChartsManagementSteps(SoftAssertions softly) {
     this.softly = softly;
     this.chartsPage = new ChartsPage();
-  }
-
-  @When("I have a charts set")
-  public void load() throws IOException {
-    Gson gson = new GsonBuilder().create();
-    try (Reader reader = new FileReader("src/main/resources/dummyListData.json")) {
-      Type userListType = TypeToken.getParameterized(List.class, Chart.class).getType();
-      SESSION_DATA.get().setCharts( gson.fromJson(reader, userListType));
-    }
   }
 
   @When("I am in the landing page of the application")

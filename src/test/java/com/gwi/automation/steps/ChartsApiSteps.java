@@ -28,6 +28,13 @@ public class ChartsApiSteps {
     this.chartsEndpoint = new ChartsEndpoint();
   }
 
+  @When("I have a charts set")
+  public void load() {
+    chartsEndpoint.getChart(Map.of());
+    SESSION_DATA.get().setCharts(chartsEndpoint.getResponseBody());
+
+  }
+
   @When("^I create a get charts request$")
   public void clearSearch(Map<String, String> field) {
     transformData(field);
@@ -50,7 +57,8 @@ public class ChartsApiSteps {
   public void validateRetrievedData(SortByOption sortingOption, OrderByOption orderOption) {
 
     assertThat(chartsEndpoint.getResponseStatusCode()).withFailMessage(
-        "Request failed with status:%s, \"%s\"", chartsEndpoint.getResponseStatusCode(),chartsEndpoint.getResponseError(),
+        "Request failed with status:%s, \"%s\"", chartsEndpoint.getResponseStatusCode(),
+        chartsEndpoint.getResponseError(),
         chartsEndpoint.getResponseError()).isEqualTo(200);
 
     sortBy(sortingOption);
