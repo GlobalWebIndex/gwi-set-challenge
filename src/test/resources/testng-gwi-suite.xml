@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="GWI Charts Test Suite" parallel="tests" thread-count="3">
+
+  <test name="Charts management test">
+    <classes>
+      <class name="com.gwi.automation.runners.ChartsManagementRunner"/>
+      <class name="com.gwi.automation.runners.ChartsApiRunner"/>
+    </classes>
+  </test>
+</suite>
